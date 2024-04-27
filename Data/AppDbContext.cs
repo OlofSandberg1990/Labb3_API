@@ -22,9 +22,9 @@ namespace Labb3_API.Data
             
 
             modelBuilder.Entity<PersonInterest>()
-                .HasOne(pi => pi.Person) //Varje person kan ha...
-                .WithMany(p => p.PersonInterests) //...flera PersonInterests...
-                .HasForeignKey(pi => pi.PersonId);//...som här specificeras i PersonInterest
+                .HasOne(pi => pi.Person) 
+                .WithMany(p => p.PersonInterests) 
+                .HasForeignKey(pi => pi.PersonId);
 
             modelBuilder.Entity<PersonInterest>()
                 .HasOne(pi => pi.Interest)
@@ -34,9 +34,9 @@ namespace Labb3_API.Data
             
 
             modelBuilder.Entity<Link>()
-                .HasOne(l => l.PersonInterest) // Varje Link är kopplad till en PersonInterest...
-                .WithMany(pi => pi.Links) // ...och varje PersonInterest kan ha flera Links...
-                .HasForeignKey(l => l.PersonInterestId); // ...som här specificeras genom ForeignKey som består av PersonId och InterestId.
+                .HasOne(l => l.PersonInterest) 
+                .WithMany(pi => pi.Links) 
+                .HasForeignKey(l => l.PersonInterestId); 
 
             
             modelBuilder.Entity<Person>().HasData(
